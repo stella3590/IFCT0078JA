@@ -3,10 +3,10 @@
 const anioActual = new Date().getFullYear();
 
 // Pedir al usuario su año de nacimiento
-const anioNacimiento = prompt("¿En qué año naciste?");
+const anioNacimiento = prompt("Introduce tu año de nacimiento");
 
 // Calcular la edad
-const edad = anioActual - anioNacimiento;
+let edad = anioActual - anioNacimiento;
 
 // Mostrar la edad en la consola
 console.log("Tienes " + edad + " años.");
