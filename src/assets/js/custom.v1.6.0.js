@@ -2,10 +2,9 @@
 const celsiusAFahrenheit = (celsius) => (celsius * 9 / 5) + 32;
 const fahrenheitACelsius = (fahrenheit) => (fahrenheit - 32) * 5 / 9;
 
-// Función para mostrar errores
-function mostrarError(mensaje) {
+function mostrarMensaje(mensaje, tipo = "log") {
   alert(mensaje);
-  console.error(mensaje);
+  console[tipo](mensaje);
 }
 
 // Función para verificar si un valor es numérico
@@ -21,11 +20,12 @@ function iniciarConversor() {
   );
 
   if (userMeasure !== 'C' && userMeasure !== 'F') {
-    mostrarError(
+    mostrarMensaje(
       `La unidad introducida <${userMeasure}> no es válida.\r\n` +
       'Por favor:\r\n' +
       '  - Ingrese <C> para convertir a grados Centígrados\r\n' +
-      '  - Ingrese <F> para convertir a grados Fahrenheit'
+      '  - Ingrese <F> para convertir a grados Fahrenheit',
+      'error'
     );
     return;
   }
@@ -35,26 +35,28 @@ function iniciarConversor() {
   const valor = Number(userDegree);
 
   if (!esNumero(valor)) {
-    mostrarError(`El valor introducido <${userDegree}> no es un número válido.`);
+    mostrarMensaje(`El valor introducido <${userDegree}> no es un número válido.`, 'error');
     return;
   }
 
   let resultado;
-  let mensaje;
 
-  if (userMeasure === 'C') {
-    resultado = fahrenheitACelsius(valor);
-    mensaje = `Los grados ${valor} Fahrenheit son ${resultado.toFixed(1)} Centígrados`;
-  } else {
-    resultado = celsiusAFahrenheit(valor);
-    mensaje = `Los grados ${valor} Centígrados son ${resultado.toFixed(1)} Fahrenheit`;
-  }
+  switch (userMeasure) {
+    case 'C':
+      resultado = fahrenheitACelsius(valor);
+      if (esNumero(resultado))
+        return mostrarMensaje(`Los ${valor}° Fahrenheit son ${resultado.toFixed(1)}° Centígrados.`);
+      else
+        return mostrarMensaje('Ha ocurrido un error al hacer la conversión.', 'error');
 
-  if (esNumero(resultado)) {
-    alert(mensaje);
-    console.log(mensaje);
-  } else {
-    mostrarError('Ha ocurrido un error al hacer la conversión.');
+    case 'F':
+      resultado = celsiusAFahrenheit(valor);
+      if (esNumero(resultado))
+        return mostrarMensaje(`Los ${valor}° Centígrados son ${resultado.toFixed(1)}° Fahrenheit.`);
+      else
+        return mostrarMensaje('Ha ocurrido un error al hacer la conversión.', 'error');
+    default:
+      return mostrarMensaje(`Conversión no soportada para: ${userMeasure}`, 'error');
   }
 }
 
