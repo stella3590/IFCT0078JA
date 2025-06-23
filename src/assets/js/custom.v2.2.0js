@@ -1,0 +1,26 @@
+// JavaScript
+
+let parrResult = document.getElementById('parrafoSecundario');
+let counter = 0;
+let inititalText = parrResult.textContent;
+parrResult.textContent = `${inititalText}  ${counter}`;
+
+
+let btnPlus = document.createElement('button');
+btnPlus.textContent = '+';
+btnPlus.onclick = () => {
+  counter++;
+  parrResult.textContent = `${inititalText}  ${counter}`;
+};
+
+let btnMinus = document.createElement('button');
+btnMinus.textContent = '-';
+btnMinus.onclick = () => {
+  counter--;
+  parrResult.textContent = `${inititalText}  ${counter}`;
+};
+
+// // Añadir el botón a la sección
+document.getElementById('seccionBotones').appendChild(btnPlus);
+document.getElementById('seccionBotones').appendChild(btnMinus);
+
