@@ -19,8 +19,7 @@ btnMinus.onclick = () => {
   counter--;
   parrResult.textContent = `${inititalText}  ${counter}`;
 };
-
-// // Añadir el botón a la sección
+// Añadir el botón a la sección
 document.getElementById('seccionBotones').appendChild(btnPlus);
 document.getElementById('seccionBotones').appendChild(btnMinus);
 
