@@ -1,8 +1,8 @@
-
 .etiqueta-Nombre {
   display: block;
   font-weight: bold;
-  color: #1e88e5; /* azul */
+  color: #1e88e5;
+  /* azul */
   font-size: 16px;
   margin-bottom: 4px;
   text-transform: uppercase;
@@ -12,8 +12,20 @@
 .etiqueta-Edad {
   display: block;
   font-weight: normal;
-  color: #43a047; /* verde */
+  color: #43a047;
+  /* verde */
   font-size: 15px;
   margin-bottom: 4px;
   font-style: italic;
+}
+
+.destacado {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  border: 1px solid red;
+  padding: 5px;
 }

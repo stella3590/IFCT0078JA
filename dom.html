@@ -5,20 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ejercicios DOM</title>
-  <style>
-    .destacado {
-      background-color: yellow;
-      font-weight: bold;
-    }
 
-    .error {
-      color: red;
-      border: 1px solid red;
-      padding: 5px;
-    }
-  </style>
+  <link href="./src/assets/styles/customdom.v1.0.css" rel="stylesheet">
 </head>
-<link href="./src/assets/styles/customdom.v1.0.css" rel="stylesheet">
+
 <body>
   <header>
     <h1>Manipulando el DOM</h1>
@@ -59,8 +49,8 @@
 
         <label for="campoEdad" style="cursor: pointer;">Edad</label>
         <input type="text" id="campoEdad" name="edad" placeholder="Introduce tu edad" />
-        <p id="mensajeInput"></p>
-        <button id="btnGuardar">Guardar</button>
+        <p id="mensajeInput" class=""></p> 
+        <button id="sendForm" type=" submit">Guardar</button>
       </form>
     </section>
   </main>
